@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import confusion_matrix, classification_report
+
 from sklearn.metrics import confusion_matrix, classification_report
 
 from imblearn.over_sampling import SMOTE
@@ -113,3 +116,23 @@ print(confusion_matrix(y_test, y_pred_lr))
 
 print("\nClassification Report (WITH SMOTE):")
 print(classification_report(y_test, y_pred_lr))
+
+# -----------------------------------------
+# Supporting Model: Decision Tree (Comparison Only)
+# -----------------------------------------
+
+
+# Train Decision Tree on SMOTE-balanced data
+dt_model = DecisionTreeClassifier(random_state=42)
+dt_model.fit(X_train_resampled, y_train_resampled)
+
+# Predict on test data
+y_pred_dt = dt_model.predict(X_test)
+
+# Evaluation
+print("\nConfusion Matrix (Decision Tree):")
+print(confusion_matrix(y_test, y_pred_dt))
+
+print("\nClassification Report (Decision Tree):")
+print(classification_report(y_test, y_pred_dt))
+

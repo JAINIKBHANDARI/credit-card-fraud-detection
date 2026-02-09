@@ -136,3 +136,38 @@ print(confusion_matrix(y_test, y_pred_dt))
 print("\nClassification Report (Decision Tree):")
 print(classification_report(y_test, y_pred_dt))
 
+# =========================================================
+# 9. SAVE THE FINAL MODEL (Week 6 requirement)
+# =========================================================
+
+import pickle
+
+with open("ml/final_fraud_model.pkl", "wb") as file:
+    pickle.dump(lr_model, file)
+
+print("\n✅ Final Logistic Regression model saved successfully")
+
+
+
+# =========================================================
+# 10. LOAD MODEL & PREDICT ONE TRANSACTION
+# =========================================================
+
+# Load the saved model
+with open("ml/final_fraud_model.pkl", "rb") as file:
+    loaded_model = pickle.load(file)
+
+print("✅ Model loaded successfully")
+
+# Take ONE sample transaction from test set
+sample_transaction = X_test.iloc[[0]]
+
+# Predict fraud probability
+fraud_probability = loaded_model.predict_proba(sample_transaction)[0][1]
+
+print("\nFraud Probability for sample transaction:", fraud_probability)
+
+if fraud_probability > 0.5:
+    print("⚠️ Transaction classified as FRAUD")
+else:
+    print("✅ Transaction classified as GENUINE")

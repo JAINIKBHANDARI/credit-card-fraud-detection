@@ -33,7 +33,7 @@ print("✅ Model loaded")
 # Genuine behavior
 # Genuine behavior
 genuine_sample = X_test[y_test == 0].iloc[[0]].copy()
-genuine_sample["Amount"] = 5000
+genuine_sample["Amount"] = 1000
 
 # Fraud behavior
 fraud_sample = X_test[y_test == 1].iloc[[0]].copy()

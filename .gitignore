@@ -4,3 +4,5 @@ __pycache__/
 venv/
 .env/
 data/creditcard.csv
+*.pkl
+

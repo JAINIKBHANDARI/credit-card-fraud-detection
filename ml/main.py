@@ -17,7 +17,8 @@ from sklearn.metrics import confusion_matrix, classification_report, roc_auc_sco
 # 1. Load Dataset
 # =========================
 print("📂 Loading dataset...")
-df = pd.read_csv("data/creditcard.csv")
+df = pd.read_csv("../data/creditcard.csv")
+
 
 # Separate features and target
 X = df.drop("Class", axis=1)
@@ -62,10 +63,11 @@ print("✅ Model trained successfully")
 # =========================
 # 5. Save & Load Model
 # =========================
-joblib.dump(model, "ml/final_fraud_model.pkl")
+joblib.dump(model, "final_fraud_model.pkl")
+
 print("✅ Model saved")
 
-loaded_model = joblib.load("ml/final_fraud_model.pkl")
+loaded_model = joblib.load("final_fraud_model.pkl")
 print("✅ Model loaded")
 
 

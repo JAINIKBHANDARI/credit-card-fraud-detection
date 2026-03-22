@@ -257,4 +257,4 @@ Returns all 25 rows from test_cases.csv as JSON.
 
 ---
 
-*FraudShield · Hybrid ML Fraud Detection · Academic Submission*
+*FraudShield · Credit card Hybrid ML Fraud Detection
